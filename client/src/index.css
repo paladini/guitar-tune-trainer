@@ -1,0 +1,151 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(20, 14.3%, 4.1%);
+  --muted: hsl(60, 4.8%, 95.9%);
+  --muted-foreground: hsl(25, 5.3%, 44.7%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(20, 14.3%, 4.1%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(20, 14.3%, 4.1%);
+  --border: hsl(20, 5.9%, 90%);
+  --input: hsl(20, 5.9%, 90%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(60, 4.8%, 95.9%);
+  --secondary-foreground: hsl(24, 9.8%, 10%);
+  --accent: hsl(60, 4.8%, 95.9%);
+  --accent-foreground: hsl(24, 9.8%, 10%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --ring: hsl(20, 14.3%, 4.1%);
+  --radius: 0.5rem;
+  
+  /* Custom smartwatch theme colors */
+  --watch-bg: hsl(0, 0%, 7%);
+  --watch-surface: hsl(0, 0%, 12%);
+  --watch-primary: hsl(207, 90%, 54%);
+  --watch-accent: hsl(174, 97%, 43%);
+  --string-e1: hsl(14, 100%, 55%);
+  --string-a: hsl(122, 51%, 51%);
+  --string-d: hsl(207, 90%, 54%);
+  --string-g: hsl(36, 100%, 50%);
+  --string-b: hsl(291, 64%, 42%);
+  --string-e2: hsl(4, 90%, 58%);
+}
+
+.dark {
+  --background: hsl(240, 10%, 3.9%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 10%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 3.9%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(240, 3.7%, 15.9%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(240, 3.7%, 15.9%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 4.9%, 83.9%);
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-roboto antialiased bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .font-roboto {
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  .watch-container {
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--watch-surface) 0%, var(--watch-bg) 100%);
+    border: 8px solid hsl(0, 0%, 20%);
+    box-shadow: 0 0 30px rgba(0,0,0,0.8), inset 0 0 20px rgba(255,255,255,0.1);
+  }
+  
+  .string-indicator {
+    transition: all 0.3s ease;
+  }
+  
+  .string-indicator.active {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px currentColor;
+  }
+  
+  .play-button {
+    transition: all 0.2s ease;
+  }
+  
+  .play-button:active {
+    transform: scale(0.95);
+  }
+  
+  .frequency-display {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+  }
+
+  .bg-watch-bg {
+    background-color: var(--watch-bg);
+  }
+  
+  .bg-watch-surface {
+    background-color: var(--watch-surface);
+  }
+  
+  .bg-watch-primary {
+    background-color: var(--watch-primary);
+  }
+  
+  .bg-watch-accent {
+    background-color: var(--watch-accent);
+  }
+}
+
+@layer components {
+  .animate-pulse-slow {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  .animate-bounce-gentle {
+    animation: bounce 1s ease-in-out 3;
+  }
+}
+
+@media (max-width: 400px) {
+  .watch-container {
+    width: 280px;
+    height: 280px;
+  }
+}
+
+@media (max-width: 350px) {
+  .watch-container {
+    width: 250px;
+    height: 250px;
+  }
+}
