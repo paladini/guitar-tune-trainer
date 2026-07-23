@@ -1,4 +1,4 @@
-﻿# Guitar Tune Trainer
+# Guitar Tune Trainer
 
 <img alt="Harness Score L0" src="https://paladini.github.io/harness-score/maturity/badge-l0.svg" height="20">
 Web-based guitar tuner optimized for smartwatch and mobile, with a Node/Express backend and PostgreSQL database.
